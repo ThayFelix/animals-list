@@ -9,16 +9,13 @@ type TodoProviderProps = {
 export const AnimalProvider = ({ children }: TodoProviderProps) => {
   const [animals, setAnimals] = useState<Animal[]>(contextDefaultValues.animals);
 
-  console.log(animals)
   const addAnimal = useCallback(
     (newAnimal: Animal) => setAnimals([...animals, newAnimal]),
     [animals]
   );
 
   const removeAnimal = useCallback((id: number) => (
-    console.log('AUI'),
-    setAnimals(animals.filter((a) => a.id !== id)),
-    console.log(animals)
+    setAnimals(animals.filter((a) => a.id !== id))
   ), [animals])
 
 
