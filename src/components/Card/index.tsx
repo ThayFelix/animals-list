@@ -1,21 +1,26 @@
+import { AnimalType } from "@/lib/animals";
 import React, { useState } from "react";
 
 type CardProps = {
   name: string,
-  id: number,
+  type: AnimalType,
   onDelete: () => void,
 }
 
-const Card = ({ name, id, onDelete }: CardProps) => {
+const Card = ({ name, type, onDelete }: CardProps) => {
   const [showText, setShowText] = useState(false);
   const [hovered, setHovered] = useState(false);
-
 
   const handleMakeNoiseClick = () => {
     setShowText(true);
     setTimeout(() => setShowText(false), 2000); // hide text after 2 seconds
   };
 
+  const animalNoise = {
+    'pig': "Oink",
+    'cow': "Mu",
+    'sheep': "Beh"
+  }
 
   return (<>
     <div className="border border-gray-300 p-4 m-4 flex justify-between"
@@ -41,7 +46,7 @@ const Card = ({ name, id, onDelete }: CardProps) => {
       </div>
       {showText && (
         <p className="text-gray-600 text-sm mt-2 self-center">
-          Oink
+          {animalNoise[type]}
         </p>
       )}
     </div>

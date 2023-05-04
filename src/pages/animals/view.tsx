@@ -11,7 +11,7 @@ export function AnimalsView() {
     <div style={{ maxWidth: 800 }}>
       <ul className='list-disc'>
         {animals.map((animal) => (
-          <Card key={animal.id} name={animal.name} id={animal.id} onDelete={() => removeAnimal(animal.id)} />
+          <Card key={animal.id} name={animal.name} type={animal.type} onDelete={() => removeAnimal(animal.id)} />
 
         ))}
       </ul>
